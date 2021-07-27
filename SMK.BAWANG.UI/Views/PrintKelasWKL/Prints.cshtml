@@ -1,0 +1,137 @@
+﻿@model IEnumerable<SMK.BAWANG.Dto.custom.tbl_poin_nis_cstm>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Prints</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/Content/assets/themes/components/default.css" rel="stylesheet" />
+    <link href="~/Content/assets/themes/components/border-radius.css" rel="stylesheet" />
+    <link href="~/Content/assets/elements/invoice.css" rel="stylesheet" />
+    <link href="~/Content/assets/elements/content-box.css" rel="stylesheet" />
+    <link href="~/Content/assets/helpers/spacing.css" rel="stylesheet" />
+    <link href="~/Content/assets/helpers/boilerplate.css" rel="stylesheet" />
+    <link href="~/Content/assets/themes/admin/color-schemes/default.css" rel="stylesheet" />
+    <link href="~/Content/assets/helpers/utils.css" rel="stylesheet" />
+    <link href="~/Content/assets/helpers/colors.css" rel="stylesheet" />
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+        function printPage() {
+            var printButton = document.getElementById("btnPrint");;
+            printButton.style.visibility = 'hidden';
+            window.print();
+
+            printButton.style.visibility = 'visible';
+        };
+    </script>
+</head>
+<body>
+    <div class="container-fluid">
+
+        <div class="pad25A">
+
+            <div class="row">
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                    <div class="dummy-logo">
+                        <img src="~/img/logo.png" />
+                    </div>
+                </div>
+                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+                    <address class="invoice-address">
+                        SMP NEGERI 1 BAWANG
+                        <br>
+                        Jln. Raya Bawang, Blambangan, Kec. Bawang, Kab. Banjarnegara
+                        <br>
+                        Jawa Tengah, Indonesia
+                    </address>
+                </div>
+                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 float-right text-right">
+                    <h4 class="invoice-title">Nilai Karakter</h4>
+                    <div class="divider"></div>
+                    <div class="invoice-date mrg20B">@DateTime.Now.ToString("dd MMMM yyyy")</div>
+                    <button id="btnPrint" onclick="printPage()" class="btn btn-alt btn-hover btn-success">
+                        <span>Print Data</span>
+                        <i class="glyph-icon icon-print"></i>
+                    </button>
+                </div>
+            </div>
+
+            <hr />
+            <div class="divider"></div>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <h5 class="invoice-client mrg10T">Data Siswa:</h5>
+                    <address class="invoice-address">
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                            NIS: @Model.First().NIS
+                            <hr />
+                        </div>
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                            NIS: @Model.First().Nama
+                            <hr />
+                        </div>
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                            NIS: @Model.First().Kelas
+                            <hr />
+                        </div>
+                    </address>
+                </div>
+            </div>
+
+            <table class="table mrg20T table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Aspek</th>
+                        <th>Tata Tertib</th>
+                        <th>Poin</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{ int rowNo = 0; Int32? total = 0; }
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @{
+                                    rowNo++;
+                                    total += item.poin;
+                                }
+                                @rowNo
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Aspek)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.tata_tertib)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.poin)
+                            </td>
+                        </tr>
+                    }
+
+                    <tr class="font-bold font-black">
+                        <td colspan="3" class="text-right">TOTAL:</td>
+                        <td colspan="3" class="font-blue font-size-23">@total</td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

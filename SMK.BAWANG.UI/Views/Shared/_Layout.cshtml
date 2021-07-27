@@ -1,0 +1,484 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    @*<style>
+            /* Loading Spinner */
+            .spinner{margin:0;width:70px;height:18px;margin:-35px 0 0 -9px;position:absolute;top:50%;left:50%;text-align:center}.spinner > div{width:18px;height:18px;background-color:#333;border-radius:100%;display:inline-block;-webkit-animation:bouncedelay 1.4s infinite ease-in-out;animation:bouncedelay 1.4s infinite ease-in-out;-webkit-animation-fill-mode:both;animation-fill-mode:both}.spinner .bounce1{-webkit-animation-delay:-.32s;animation-delay:-.32s}.spinner .bounce2{-webkit-animation-delay:-.16s;animation-delay:-.16s}@-webkit-keyframes bouncedelay{0%,80%,100%{-webkit-transform:scale(0.0)}40%{-webkit-transform:scale(1.0)}}@keyframes bouncedelay{0%,80%,100%{transform:scale(0.0);-webkit-transform:scale(0.0)}40%{transform:scale(1.0);-webkit-transform:scale(1.0)}}
+        </style>*@
+
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/site.css")">
+
+    <meta charset="UTF-8">
+    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+    <title>@ViewBag.Title</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="@Url.Content("~/Content/assets/images/icons/apple-touch-icon-144-precomposed.png")">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="@Url.Content("~/Content/assets/images/icons/apple-touch-icon-114-precomposed.png")">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="@Url.Content("~/Content/assets/images/icons/apple-touch-icon-72-precomposed.png")">
+    <link rel="apple-touch-icon-precomposed" href="@Url.Content("~/Content/assets/images/icons/apple-touch-icon-57-precomposed.png")">
+    <link rel="shortcut icon" href="@Url.Content("~/Content/assets/images/icons/favicon.png")">
+
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/bootstrap/css/bootstrap.css")">
+
+    <!-- HELPERS -->
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/helpers/animate.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/helpers/backgrounds.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/helpers/boilerplate.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/helpers/border-radius.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/helpers/grid.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/helpers/page-transitions.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/helpers/spacing.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/helpers/typography.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/helpers/utils.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/helpers/colors.css")">
+    <!-- ELEMENTS -->
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/elements/badges.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/elements/buttons.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/elements/content-box.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/elements/dashboard-box.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/elements/forms.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/elements/images.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/elements/info-box.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/elements/invoice.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/elements/loading-indicators.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/elements/menus.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/elements/panel-box.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/elements/response-messages.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/elements/responsive-tables.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/elements/ribbon.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/elements/social-box.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/elements/tables.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/elements/tile-box.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/elements/timeline.css")">
+
+    <!-- Front ELEMENTS -->
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/frontend-elements/blog.css")">
+
+    <!-- ICONS -->
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/icons/fontawesome/fontawesome.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/icons/linecons/linecons.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/icons/spinnericon/spinnericon.css")">
+
+    <!-- WIDGETS -->
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/accordion-ui/accordion.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/calendar/calendar.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/carousel/carousel.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/charts/justgage/justgage.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/charts/morris/morris.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/charts/piegage/piegage.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/charts/xcharts/xcharts.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/chosen/chosen.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/colorpicker/colorpicker.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/datatable/datatable.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/datepicker/datepicker.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/datepicker-ui/datepicker.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/daterangepicker/daterangepicker.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/dialog/dialog.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/dropdown/dropdown.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/dropzone/dropzone.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/file-input/fileinput.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/input-switch/inputswitch.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/input-switch/inputswitch-alt.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/ionrangeslider/ionrangeslider.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/jcrop/jcrop.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/jgrowl-notifications/jgrowl.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/loading-bar/loadingbar.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/maps/vector-maps/vectormaps.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/markdown/markdown.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/modal/modal.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/multi-select/multiselect.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/multi-upload/fileupload.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/nestable/nestable.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/noty-notifications/noty.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/popover/popover.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/pretty-photo/prettyphoto.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/progressbar/progressbar.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/range-slider/rangeslider.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/slidebars/slidebars.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/slider-ui/slider.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/summernote-wysiwyg/summernote-wysiwyg.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/tabs-ui/tabs.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/theme-switcher/themeswitcher.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/timepicker/timepicker.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/tocify/tocify.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/tooltip/tooltip.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/touchspin/touchspin.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/uniform/uniform.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/wizard/wizard.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/xeditable/xeditable.css")">
+    <!-- SNIPPETS -->
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/snippets/chat.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/snippets/files-box.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/snippets/login-box.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/snippets/notification-box.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/snippets/progress-box.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/snippets/todo.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/snippets/user-profile.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/snippets/mobile-navigation.css")">
+    <!-- APPLICATIONS -->
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/applications/mailbox.css")">
+    <!-- Admin theme -->
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/themes/admin/layout.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/themes/admin/color-schemes/default.css")">
+    <!-- Components theme -->
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/themes/components/default.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/themes/components/border-radius.css")">
+    <!-- Admin responsive -->
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/helpers/responsive-elements.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/helpers/admin-responsive.css")">
+
+    <!--Choosen-->
+    @*<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/component-chosen.min.css")">*@
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/chosen-bootstrap.css")">
+
+    @Scripts.Render("~/bundles/jquery")
+
+
+
+    <!-- JS Core -->
+
+    <script type="text/javascript" src="@Url.Content("~/Content/assets/js-core/jquery-core.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/assets/js-core/jquery-ui-core.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/assets/js-core/jquery-ui-widget.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/assets/js-core/jquery-ui-mouse.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/assets/js-core/jquery-ui-position.js")"></script>
+    @*<script type="text/javascript" src="@Url.Content("~/Content/assets/js-core/transition.js")"></script>*@
+    <script type="text/javascript" src="@Url.Content("~/Content/assets/js-core/modernizr.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/assets/js-core/jquery-cookie.js")"></script>
+
+    <script type="text/javascript" src="@Url.Content("~/Content/assets/widgets/datepicker/datepicker.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/chosen.jquery.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/init.js")"></script>
+
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        $.validator.setDefaults({ ignore: [] });
+
+        $(window).load(function () {
+            setTimeout(function () {
+                $('#loading').fadeOut(400, "linear");
+            }, 300);
+        });
+
+        $(function () {
+            "use strict";
+            $('.bootstrap-datepicker').bsdatepicker({
+                format: 'yyyy/mm/dd'
+            });
+
+            $('.form-control-chosen-required').chosen({
+                allow_single_deselect: false,
+                width: '100%'
+            });
+
+        });
+
+        function fDataSiswa(t) {
+            $("#mnHomeSWA").removeClass("mActive");
+            $("#mnTataTertibSWA").removeClass("mActive");
+            $("#mnPenilaianDiriSWA").removeClass("mActive");
+            $("#mnPoinSiswaSWA").removeClass("mActive");
+            $("#mnDataSiswaSWA").removeClass("mActive");
+
+            $("#" + t).addClass("mActive");
+        }
+
+        function fGuruBK(t) {
+            $("#mnHome").removeClass("mActive");
+            $("#mnPengumuman").removeClass("mActive");
+            $("#mnTataTertib").removeClass("mActive");
+            $("#mnPoinSiswa").removeClass("mActive");
+            $("#mnNilaiKarakter").removeClass("mActive");
+            $("#mnGuruBK").removeClass("mActive");
+            $("#mnWaliKelas").removeClass("mActive");
+            $("#mnDataSiswa").removeClass("mActive");
+
+            $("#" + t).addClass("mActive");
+        }
+
+        function fWaliKelas(t) {
+            $("#mnHomeWKL").removeClass("mActive");
+            $("#mnPoinSiswaWKL").removeClass("mActive");
+            $("#mnPrintKelasWKL").removeClass("mActive");
+            $("#mnWaliKelasWKL").removeClass("mActive");
+            $("#mnDataSiswaWKL").removeClass("mActive");
+
+            $("#" + t).addClass("mActive");
+        }
+
+        function AjaxCall(url, data, type) {
+            return $.ajax({
+                url: url,
+                type: type ? type : 'GET',
+                data: data,
+                contentType: 'application/json'
+            });
+        }
+
+
+
+    </script>
+
+</head>
+
+<body>
+    <div id="sb-site">
+        <div id="loading">
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div>
+        <div id="page-wrapper">
+            @{
+                string usrLogin = string.Empty;
+                string usrType = string.Empty;
+                string usrNama = string.Empty;
+
+                if (User.Identity.IsAuthenticated)
+                {
+                    if (Session["userLogin"] == null)
+                    {
+                        HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+                        FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(authCookie.Value);
+
+                        usrType = ticket.Name.Split('|')[1];
+                        usrNama = ticket.Name.Split('|')[2];
+                        usrLogin = ticket.Name.Split('|')[0];
+                    }
+                    else
+                    {
+
+                        if (Session["userLogin"] != null)
+                        {
+                            usrLogin = Session["userLogin"].ToString();
+                            usrType = Session["usrTypeLogin"].ToString();
+                            usrNama = Session["usrNama"].ToString();
+                        }
+                    }
+                }
+                else
+                {
+                    return;
+                }
+            }
+
+            <div id="page-header" class="bg-gradient-9">
+                <div id="mobile-navigation">
+                    <button id="nav-toggle" class="collapsed" data-toggle="collapse" data-target="#page-sidebar"><span></span></button>
+                    <a href="~/Home" class="logo-content-small" title="SMP Negeri 1 BAWANG"></a>
+                </div>
+                <div id="header-logo" class="logo-bg">
+                    <a href="~/Home" class="logo-content-big" title="SMP Negeri 1 BAWANG">
+                        SMP Negeri 1<i>BAWANG</i>
+                        <span>The perfect solution for user interfaces</span>
+                    </a>
+                    <a href="~/Home" class="logo-content-small" title="SMP Negeri 1 BAWANG">
+                        SMP Negeri 1<i>BAWANG</i>
+                        <span>The perfect solution for user interfaces</span>
+                    </a>
+                    <a id="close-sidebar" href="#" title="Close sidebar">
+                        <i class="glyph-icon icon-angle-left"></i>
+                    </a>
+                </div>
+                <div id="header-nav-left">
+
+                </div><!-- #header-nav-left -->
+                <div id="header-nav-right">
+                    <a class="header-btn" id="logout-btn" href="~/Login/Logout" title="Lockscreen page example">
+                        <i class="glyph-icon icon-linecons-lock"></i>
+                    </a>
+                </div><!-- #header-nav-right -->
+            </div>
+            <div id="page-sidebar">
+                <div class="scroll-sidebar">
+                    <!--MENU-->
+                    <ul id="sidebar-menu">
+                        @{
+                            if (usrType == null)
+                            {
+                                Response.Redirect("~/Login");
+                            }
+                            else if (usrType == "GBK")
+                            {
+                                Html.RenderPartial("_menuGBK");
+                            }
+                            else if (usrType == "SWA")
+                            {
+                                Html.RenderPartial("_menuSWA");
+                            }
+                            else if (usrType == "WKL")
+                            {
+                                Html.RenderPartial("_menuWKL");
+                            }
+
+                        }
+                    </ul>
+                </div>
+            </div>
+            <div id="page-content-wrapper">
+                <div id="page-content">
+
+                    <div class="container-fluid">
+
+                        <!-- jQueryUI Spinner -->
+                        <script type="text/javascript" src="@Url.Content("~/Content/assets/widgets/spinner/spinner.js")"></script>
+                        <script type="text/javascript">
+                            /* jQuery UI Spinner */
+
+                            $(function () {
+                                "use strict";
+                                $(".spinner-input").spinner();
+                            });
+                        </script>
+                        <!-- jQueryUI Autocomplete -->
+                        <script type="text/javascript" src="@Url.Content("~/Content/assets/widgets/autocomplete/autocomplete.js")"></script>
+                        <script type="text/javascript" src="@Url.Content("~/Content/assets/widgets/autocomplete/menu.js")"></script>
+                        <script type="text/javascript" src="@Url.Content("~/Content/assets/widgets/autocomplete/autocomplete-demo.js")"></script>
+                        <!-- Touchspin -->
+                        <!--<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/touchspin/touchspin.css")">-->
+                        <script type="text/javascript" src="@Url.Content("~/Content/assets/widgets/touchspin/touchspin.js")"></script>
+                        <script type="text/javascript" src="@Url.Content("~/Content/assets/widgets/touchspin/touchspin-demo.js")"></script>
+                        <!-- Input switch -->
+                        <!--<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/input-switch/inputswitch.css")">-->
+                        <script type="text/javascript" src="@Url.Content("~/Content/assets/widgets/input-switch/inputswitch.js")"></script>
+                        <script type="text/javascript">
+                            /* Input switch */
+
+                            $(function () {
+                                "use strict";
+                                $('.input-switch').bootstrapSwitch();
+                            });
+                        </script>
+                        <!-- Textarea -->
+                        <script type="text/javascript" src="@Url.Content("~/Content/assets/widgets/textarea/textarea.js")"></script>
+                        <script type="text/javascript">
+                            /* Textarea autoresize */
+
+                            $(function () {
+                                "use strict";
+                                $('.textarea-autosize').autosize();
+                            });
+                        </script>
+                        <!-- Multi select -->
+                        <!--<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/multi-select/multiselect.css")">-->
+                        <script type="text/javascript" src="@Url.Content("~/Content/assets/widgets/multi-select/multiselect.js")"></script>
+                        <script type="text/javascript">
+                            /* Multiselect inputs */
+
+                            $(function () {
+                                "use strict";
+                                $(".multi-select").multiSelect();
+                                $(".ms-container").append('<i class="glyph-icon icon-exchange"></i>');
+                            });
+                        </script>
+                        <!-- Uniform -->
+                        <!--<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/uniform/uniform.css")">-->
+                        <script type="text/javascript" src="@Url.Content("~/Content/assets/widgets/uniform/uniform.js")"></script>
+                        <script type="text/javascript" src="@Url.Content("~/Content/assets/widgets/uniform/uniform-demo.js")"></script>
+                        <!-- Chosen -->
+                        <!--<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/assets/widgets/chosen/chosen.css")">-->
+                        <script type="text/javascript" src="@Url.Content("~/Content/assets/widgets/chosen/chosen.js")"></script>
+                        <script type="text/javascript" src="@Url.Content("~/Content/assets/widgets/chosen/chosen-demo.js")"></script>
+                        @RenderBody()
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!--modal new-->
+            <div class="modal fade" tabindex="-1" role="dialog" id="modal-primary">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">Konfirmasi</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Apakah data ini akan di hapus?</p>
+                            <p id="addMsg1"></p>
+                            <p id="addMsg2"></p>
+
+                            <p hidden id="noID"></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-primary" onclick="deleteOK();">OK</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+            <!-- end modal new-->
+
+
+        </div>
+
+        <!-- WIDGETS -->
+        <script type="text/javascript" src="@Url.Content("~/Content/assets/bootstrap/js/bootstrap.js")"></script>
+        <!-- Bootstrap Dropdown -->
+        <!-- <script type="text/javascript" src="@Url.Content("~/Content/assets/widgets/dropdown/dropdown.js")"></script> -->
+        <!-- Bootstrap Tooltip -->
+        <!-- <script type="text/javascript" src="@Url.Content("~/Content/assets/widgets/tooltip/tooltip.js")"></script> -->
+        <!-- Bootstrap Popover -->
+        <!-- <script type="text/javascript" src="@Url.Content("~/Content/assets/widgets/popover/popover.js")"></script> -->
+        <!-- Bootstrap Progress Bar -->
+        <script type="text/javascript" src="@Url.Content("~/Content/assets/widgets/progressbar/progressbar.js")"></script>
+        <!-- Bootstrap Buttons -->
+        <!-- <script type="text/javascript" src="@Url.Content("~/Content/assets/widgets/button/button.js")"></script> -->
+        <!-- Bootstrap Collapse -->
+        <!-- <script type="text/javascript" src="@Url.Content("~/Content/assets/widgets/collapse/collapse.js")"></script> -->
+        <!--datatables-->
+        <script type="text/javascript" src="@Url.Content("~/Content/assets/widgets/datatable/datatable.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Content/assets/widgets/datatable/datatable-bootstrap.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Content/assets/widgets/datatable/datatable-tabletools.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Content/assets/widgets/datatable/ellipsis.js")"></script>
+
+        <!-- Superclick -->
+        <script type="text/javascript" src="@Url.Content("~/Content/assets/widgets/superclick/superclick.js")"></script>
+        <!-- Input switch alternate -->
+        <script type="text/javascript" src="@Url.Content("~/Content/assets/widgets/input-switch/inputswitch-alt.js")"></script>
+        <!-- Slim scroll -->
+        <script type="text/javascript" src="@Url.Content("~/Content/assets/widgets/slimscroll/slimscroll.js")"></script>
+        <!-- Slidebars -->
+        <script type="text/javascript" src="@Url.Content("~/Content/assets/widgets/slidebars/slidebars.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Content/assets/widgets/slidebars/slidebars-demo.js")"></script>
+        <!-- PieGage -->
+        <script type="text/javascript" src="@Url.Content("~/Content/assets/widgets/charts/piegage/piegage.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Content/assets/widgets/charts/piegage/piegage-demo.js")"></script>
+        <!-- Screenfull -->
+        <script type="text/javascript" src="@Url.Content("~/Content/assets/widgets/screenfull/screenfull.js")"></script>
+        <!-- Content box -->
+        <script type="text/javascript" src="@Url.Content("~/Content/assets/widgets/content-box/contentbox.js")"></script>
+        <!-- Overlay -->
+        <script type="text/javascript" src="@Url.Content("~/Content/assets/widgets/overlay/overlay.js")"></script>
+        <!-- Widgets init for demo -->
+        <script type="text/javascript" src="@Url.Content("~/Content/assets/js-init/widgets-init.js")"></script>
+        <!-- Theme layout -->
+        <script type="text/javascript" src="@Url.Content("~/Content/assets/themes/admin/layout.js")"></script>
+        <!-- Theme switcher -->
+        <script type="text/javascript" src="@Url.Content("~/Content/assets/widgets/theme-switcher/themeswitcher.js")"></script>
+    </div>
+
+    <footer class="navbar-default navbar-fixed-bottom">
+        <div class="container-fluid" style="background-image: linear-gradient(to bottom, #ffffff, #e1e3e4, #c3c8c8, #a7adaa, #90928c);">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="https://www.linkedin.com/in/sahrul-ramadhani-2402481b8/" target="_blank">
+                    <img alt="Brand" src="@Url.Content("~/Content/assets/images/user.png")">
+                </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="#"><b> @usrLogin - @usrNama</b> <span class="sr-only"></span></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
+

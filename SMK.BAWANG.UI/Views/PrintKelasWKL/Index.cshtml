@@ -1,0 +1,63 @@
+﻿@model SMK.BAWANG.Dto.custom.tbl_content_cstm
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container-fluid">
+    @{
+        string htmlx = string.Empty;
+
+        <br />
+        htmlx = Model.content_text.Replace("id=''", "id='datatable-row-highlight'");
+
+        // htmlx = Model.content_text.Replace("", "<a class="glyph - icon tooltip - button demo - icon icon - search" href=" / PoinSiswa / PointSiswaNIS / NIS1 ? kelas = Kelas % 201" title="" data-original-title="Detail Data"> </a>");
+
+
+        <div class="row justify-content-center ">
+            @Html.Raw(htmlx)
+        </div>
+        <br />
+
+    }
+
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var table = $('#datatable-row-highlight').DataTable(
+            {
+                columnDefs: [{
+                    targets: 1,
+                    render: $.fn.dataTable.render.ellipsis(100)
+                }, {
+                    targets: 8,
+                    data: null,
+                    defaultContent: '<button class="glyph-icon icon-print"></button>'
+                }]
+                , responsive: true
+            }
+        );
+
+        //$('#datatable-row-highlight tbody').on('click', 'tr', function () {
+        //    $(this).toggleClass('tr-selected');
+        //});
+
+        $('#datatable-row-highlight tbody').on('click', 'button', function () {
+            var data = table.row($(this).parents('tr')).data();
+            var ss = '@Url.Action("Prints", "PrintKelasWKL")/' + data[0] +'?kelas='+data[2] ;
+           // window.location.href = ss;
+
+            window.open(ss, '_blank');
+
+        });
+
+
+        fWaliKelas('mnPrintKelasWKL');
+
+
+
+    });
+</script>

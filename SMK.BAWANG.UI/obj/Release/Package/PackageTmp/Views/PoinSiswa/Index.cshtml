@@ -1,0 +1,46 @@
+﻿@model IEnumerable<SMK.BAWANG.Dto.tbl_point_siswa>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id_poin_siswa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NIS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_tata_tertib)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_poin_siswa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NIS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_tata_tertib)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

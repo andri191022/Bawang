@@ -1,0 +1,76 @@
+﻿@model SMK.BAWANG.UI.Models.m_tbl_tata_tertib_cstm
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="page-title">
+    <h2> Data Tata Tertib</h2>
+</div>
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="card-title">Detail Data</h3>
+    </div>
+    <div class="panel-body">
+
+        <div class="row">
+            <div class="col-md-2" style="font-weight: bold;">
+                @Html.LabelFor(model => model.tata_tertib)
+                <hr />
+            </div>
+            <div class="col-md-1 text-center">
+                :
+            </div>
+            <div class="col-md-9">
+                @Html.DisplayFor(model => model.tata_tertib)&nbsp;
+                <hr />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2" style="font-weight: bold;">
+                @Html.LabelFor(model => model.poin)
+                <hr />
+            </div>
+            <div class="col-md-1 text-center">
+                :
+            </div>
+            <div class="col-md-9">
+                @Html.DisplayFor(model => model.poin)&nbsp;
+                <hr />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2" style="font-weight: bold;">
+                @Html.LabelFor(model => model.aspek)
+                <hr />
+            </div>
+            <div class="col-md-1 text-center">
+                :
+            </div>
+            <div class="col-md-9">
+                @Html.DisplayFor(model => model.aspek)&nbsp;
+                <hr />
+            </div>
+        </div>
+
+    </div>
+
+    <div class="panel-footer">
+        @Html.ActionLink("BACK", "Index", "TataTertib", new { area = "" }, new { @class = "btn btn-primary" })
+        <div class=" float-right">
+            <b>Creator:</b> @Html.DisplayFor(model => model.creator) &nbsp;-&nbsp; @if (@Model.created != null)
+            {@Model.created.Value.ToString("dd/MMM/yyyy HH:mm")},&nbsp;<b>Editor:</b> @Html.DisplayFor(model => model.editor)&nbsp;-&nbsp; @if (@Model.edited != null)
+            {@Model.edited.Value.ToString("dd/MMM/yyyy HH:mm")}
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        fGuruBK('mnTataTertib');
+    });
+</script>

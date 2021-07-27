@@ -1,0 +1,122 @@
+﻿@model IEnumerable<SMK.BAWANG.Dto.tbl_pengumuman>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="page-title">
+    <h2> Data Pengumuman</h2>
+</div>
+<div class="panel">
+    <div class="panel-heading">
+        <p>
+            @Html.ActionLink("Add New", "Create", new { area = "" }, new { @class = "btn btn-primary" })
+        </p>
+    </div>
+    <div class="panel-body">
+
+        <div class="example-box-wrapper">
+            <table id="datatable-row-highlight" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>
+                            Nomor
+                        </th>
+                        <th>
+                            Tanggal
+                        </th>
+                        <th>
+                            Judul
+                        </th>
+                        <th>
+                            Isi Pengumuman
+                        </th>
+                        <th>
+                            Editor
+                        </th>
+                        <th style="min-width:123px; max-width:150px;"></th>
+                    </tr>
+                </thead>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.no)
+                        </td>
+                        <td>
+                            @if (item.tanggal != null)
+                            {
+                                var tgl = item.tanggal.Value.ToString("dd-MMM-yyyy");
+                                @tgl
+                            }
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.judul)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.isi)
+                        </td>
+                        <td>
+                            @{
+                                var editor = string.Empty;
+                                if (item.editor != null) { editor = item.editor; } else { editor = item.creator; }
+                                @editor;
+                            }                           
+                        </td>
+                        <td style="text-align:center;">
+                            @Html.ActionLink(" ", "Edit", new { id = item.id_pengumuman }, new { @class = "glyph-icon tooltip-button demo-icon icon-edit", title = "Edit Data" })
+                            @Html.ActionLink(" ", "Details", new { id = item.id_pengumuman }, new { @class = "glyph-icon tooltip-button demo-icon icon-search", title = "Detail Data" })
+                            <a href="#">
+                                <span onclick="deleteConfirm('@item.id_pengumuman','@item.no', '@item.judul');">
+                                    <i class="glyph-icon demo-icon tooltip-button icon-linecons-trash" title="Delete Data" data-toggle="modal" data-target="#modal-primary"></i>
+                                </span>
+                            </a>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+
+    </div>
+</div>
+
+
+
+<script>
+    /* Datatable row highlight */
+
+    $(document).ready(function () {
+        var table = $('#datatable-row-highlight').DataTable(
+            {
+                columnDefs: [{
+                    targets: 3,
+                    render: $.fn.dataTable.render.ellipsis(100)
+                }]
+                , responsive: true
+            }
+        );
+
+        $('#datatable-row-highlight tbody').on('click', 'tr', function () {
+            $(this).toggleClass('tr-selected');
+        });
+
+    });
+
+
+
+    function deleteConfirm(a, b, c) {
+        $("#addMsg1").text("Nomor Pengumuman : " + b);
+        $("#addMsg2").text("Judul Pengumuman : " + c);
+        $("#noID").text(a);
+    }
+
+    function deleteOK() {
+        var id = $("#noID").text();
+        var ss = 'Pengumuman/Delete/' + id;
+        window.location.href = ss;
+    }
+
+</script>

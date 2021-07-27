@@ -1,0 +1,11 @@
+C:\Users\andri\source\repos\SMK.BAWANG.UI\SMK.BAWANG.Dta\bin\Release\SMK.BAWANG.Dta.dll
+C:\Users\andri\source\repos\SMK.BAWANG.UI\SMK.BAWANG.Dta\bin\Release\SMK.BAWANG.Dta.pdb
+C:\Users\andri\source\repos\SMK.BAWANG.UI\SMK.BAWANG.Dta\bin\Release\DBHelper.dll
+C:\Users\andri\source\repos\SMK.BAWANG.UI\SMK.BAWANG.Dta\bin\Release\SMK.BAWANG.Dto.dll
+C:\Users\andri\source\repos\SMK.BAWANG.UI\SMK.BAWANG.Dta\bin\Release\MySql.Data.dll
+C:\Users\andri\source\repos\SMK.BAWANG.UI\SMK.BAWANG.Dta\bin\Release\SMK.BAWANG.Dto.pdb
+C:\Users\andri\source\repos\SMK.BAWANG.UI\SMK.BAWANG.Dta\obj\Release\SMK.BAWANG.Dta.csproj.AssemblyReference.cache
+C:\Users\andri\source\repos\SMK.BAWANG.UI\SMK.BAWANG.Dta\obj\Release\SMK.BAWANG.Dta.csproj.CoreCompileInputs.cache
+C:\Users\andri\source\repos\SMK.BAWANG.UI\SMK.BAWANG.Dta\obj\Release\SMK.BAWANG.Dta.csproj.CopyComplete
+C:\Users\andri\source\repos\SMK.BAWANG.UI\SMK.BAWANG.Dta\obj\Release\SMK.BAWANG.Dta.dll
+C:\Users\andri\source\repos\SMK.BAWANG.UI\SMK.BAWANG.Dta\obj\Release\SMK.BAWANG.Dta.pdb

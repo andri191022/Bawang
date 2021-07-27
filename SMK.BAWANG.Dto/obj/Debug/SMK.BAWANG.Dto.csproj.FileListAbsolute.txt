@@ -1,0 +1,9 @@
+C:\Users\andri\source\repos\SMK.BAWANG.UI\SMK.BAWANG.Dto\bin\Debug\SMK.BAWANG.Dto.dll
+C:\Users\andri\source\repos\SMK.BAWANG.UI\SMK.BAWANG.Dto\bin\Debug\SMK.BAWANG.Dto.pdb
+C:\Users\andri\source\repos\SMK.BAWANG.UI\SMK.BAWANG.Dto\bin\Debug\DBHelper.dll
+C:\Users\andri\source\repos\SMK.BAWANG.UI\SMK.BAWANG.Dto\bin\Debug\MySql.Data.dll
+C:\Users\andri\source\repos\SMK.BAWANG.UI\SMK.BAWANG.Dto\obj\Debug\SMK.BAWANG.Dto.csproj.AssemblyReference.cache
+C:\Users\andri\source\repos\SMK.BAWANG.UI\SMK.BAWANG.Dto\obj\Debug\SMK.BAWANG.Dto.csproj.CoreCompileInputs.cache
+C:\Users\andri\source\repos\SMK.BAWANG.UI\SMK.BAWANG.Dto\obj\Debug\SMK.BAWANG.Dto.csproj.CopyComplete
+C:\Users\andri\source\repos\SMK.BAWANG.UI\SMK.BAWANG.Dto\obj\Debug\SMK.BAWANG.Dto.dll
+C:\Users\andri\source\repos\SMK.BAWANG.UI\SMK.BAWANG.Dto\obj\Debug\SMK.BAWANG.Dto.pdb

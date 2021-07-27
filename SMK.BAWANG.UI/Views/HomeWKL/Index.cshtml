@@ -1,0 +1,51 @@
+﻿@model IEnumerable<SMK.BAWANG.Dto.tbl_pengumuman>
+
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+
+    @foreach (var item in Model)
+    {
+        <div class="blog-box row">
+            <div class="col-md-12">
+                <h3>@item.judul</h3>
+                <div class="post-meta">
+                    <span>
+                        <i class="glyph-icon icon-user"></i>
+                        <a href="#" title="">
+                            @if (item.editor != null)
+                            {@item.editor }
+                        else
+                        { @item.creator}
+                    </a>
+                </span>
+                <span>
+                    <i class="glyph-icon icon-clock-o"></i>
+                    @if (item.edited != null)
+                    {@item.edited.Value.ToString("dd/MMM/yyyy");
+                }
+                else
+                { @item.created.Value.ToString("dd/MMM/yyyy");
+            }
+                </span>
+            </div>
+            <div class="post-content">
+                <p>@item.isi</p>
+            </div>
+            @*<a href="#" class="btn btn-sm btn-default" title="Read more">Read more</a>*@
+        </div>
+    </div>
+}
+
+
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        fWaliKelas('mnHomeWKL');
+    }
+</script>

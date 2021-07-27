@@ -1,0 +1,116 @@
+﻿@model IEnumerable<SMK.BAWANG.Dto.tbl_data_siswa>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div id="page-title">
+    <h2> Data Siswa</h2>
+</div>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <p>
+            @Html.ActionLink("Add New", "Create", new { area = "" }, new { @class = "btn btn-primary" })
+        </p>
+    </div>
+    <div class="panel-body">
+        <div class="example-box-wrapper">
+
+            <table id="datatable-row-highlight" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>
+                            Username
+                            @*@Html.DisplayNameFor(model => model.username)*@
+                        </th>
+                        <th>
+                            Password
+                            @*@Html.DisplayNameFor(model => model.password)*@
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.NIS)
+                        </th>
+                        <th>
+                            Nama Lengkap
+                            @*@Html.DisplayNameFor(model => model.nama)*@
+                        </th>
+                        <th>
+                            Kelas
+                            @*@Html.DisplayNameFor(model => model.kelas)*@
+                        </th>
+                        <th style="min-width:123px; max-width:150px;"></th>
+                    </tr>
+                </thead>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.username)
+                        </td>
+                        <td>
+                            ***************
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NIS)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.nama)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.kelas)
+                        </td>
+                        <td style="text-align:center;">
+                            @Html.ActionLink(" ", "Edit", new { id = item.username }, new { @class = "glyph-icon tooltip-button demo-icon icon-edit", title = "Edit Data" })
+                            @Html.ActionLink(" ", "Details", new { id = item.username }, new { @class = "glyph-icon tooltip-button demo-icon icon-search", title = "Detail Data" })
+                            <a href="#">
+                                <span onclick="deleteConfirm('@item.username','@item.username', '@item.nama');">
+                                    <i class="glyph-icon demo-icon tooltip-button icon-linecons-trash" title="Delete Data" data-toggle="modal" data-target="#modal-primary"></i>
+                                </span>
+                            </a>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    /* Datatable row highlight */
+
+    $(document).ready(function () {
+        var table = $('#datatable-row-highlight').DataTable(
+            {
+                columnDefs: [{
+                    targets: 0,
+                    render: $.fn.dataTable.render.ellipsis(100)
+                }]
+                , responsive: true
+            }
+        );
+
+        $('#datatable-row-highlight tbody').on('click', 'tr', function () {
+            $(this).toggleClass('tr-selected');
+        });
+
+        fWaliKelas('mnDataSiswaWKL');
+    });
+
+
+
+    function deleteConfirm(a, b, c) {
+        $("#addMsg1").text("Username : " + b);
+        $("#addMsg2").text("Nama : " + c);
+        $("#noID").text(a);
+    }
+
+    function deleteOK() {
+        var id = $("#noID").text();
+        var ss = 'DataSiswaWKL/Delete/' + id;
+        window.location.href = ss;
+    }
+
+</script>
+

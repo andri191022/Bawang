@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3065D131-BAC5-495D-8977-1161F586FA71}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMK.BAWANG.Dta</RootNamespace>
+    <AssemblyName>SMK.BAWANG.Dta</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DBHelper">
+      <HintPath>..\packages\DBHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="custom\NilaiIKarakter_cstmItem.cs" />
+    <Compile Include="custom\tbl_data_siswa_cstmItem.cs" />
+    <Compile Include="custom\tbl_pengumuman_cstmItem.cs" />
+    <Compile Include="custom\tbl_point_cstmItem.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="tbl_data_siswaItem.cs" />
+    <Compile Include="tbl_guru_bkItem.cs" />
+    <Compile Include="tbl_m_aspekItem.cs" />
+    <Compile Include="tbl_m_kelasItem.cs" />
+    <Compile Include="tbl_pengumumanItem.cs" />
+    <Compile Include="tbl_point_siswaItem.cs" />
+    <Compile Include="tbl_tata_tertibItem.cs" />
+    <Compile Include="tbl_wali_kelasItem.cs" />
+    <Compile Include="Tb_LogItem.cs" />
+    <Compile Include="Tb_Log_ErrorItem.cs" />
+    <Compile Include="v_LoginItem.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SMK.BAWANG.Dto\SMK.BAWANG.Dto.csproj">
+      <Project>{29baea57-896e-498e-9ec8-d3dd18b5b952}</Project>
+      <Name>SMK.BAWANG.Dto</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

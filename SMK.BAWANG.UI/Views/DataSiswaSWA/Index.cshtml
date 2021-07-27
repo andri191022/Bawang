@@ -1,0 +1,88 @@
+﻿@model SMK.BAWANG.UI.Models.m_tbl_data_siswa
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div id="page-title">
+    <h2> Data User Siswa</h2>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.Hidden("aeMode", "EDIT")
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="card-title">&nbsp;</h3>
+            </div>
+            <div class="panel-body">
+                @Html.Hidden("aeMode", "EDIT")
+                <div class="form-group">
+                    @Html.LabelFor(model => model.username, htmlAttributes: new { @class = "control-label col-md-2 text-left" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.username, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.username, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.password, htmlAttributes: new { @class = "control-label col-md-2 text-left" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ConfirmPassword, htmlAttributes: new { @class = "control-label col-md-2 text-left" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.NIS, htmlAttributes: new { @class = "control-label col-md-2 text-left" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.NIS, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.NIS, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.nama, htmlAttributes: new { @class = "control-label col-md-2 text-left" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.nama, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.nama, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.kelas, htmlAttributes: new { @class = "control-label col-md-2 text-left" })
+                    <div class="col-md-10">
+                        @*@Html.EditorFor(model => model.kelas, new { htmlAttributes = new { @class = "form-control" } })*@
+                        @Html.DropDownListFor(model => model.kelas, ViewBag.dataKelas as SelectList, new { @class = "form-control form-control-chosen-required" })
+                        @Html.ValidationMessageFor(model => model.kelas, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+            </div>
+            <div class="panel-footer">
+                @Html.ActionLink(" ", "", new { area = "" }, new { @class = "btn btn-success" })
+                <input type="submit" value="Save" class="btn btn-primary float-right" />
+            </div>
+        </div>
+    </div>
+}
+
+<script>
+    $(document).ready(function () {
+        fDataSiswa('mnDataSiswaSWA');
+    });
+</script>

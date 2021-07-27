@@ -1,0 +1,94 @@
+﻿@model SMK.BAWANG.UI.Models.m_tbl_poin_nis_cstm
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="page-title">
+    <h2>Data Poin Siswa</h2>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="card-title">Add Data</h3>
+            </div>
+            <div class="panel-body">
+                @Html.Hidden("aeMode", "ADD")
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.NIS, htmlAttributes: new { @class = "control-label col-md-2 text-left" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.NIS, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.NIS, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Nama, htmlAttributes: new { @class = "control-label col-md-2 text-left" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Nama, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.Nama, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Kelas, htmlAttributes: new { @class = "control-label col-md-2 text-left" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Kelas, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.Kelas, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.id_tata_tertib, htmlAttributes: new { @class = "control-label col-md-2 text-left" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.id_tata_tertib, ViewBag.dataTataTertib as SelectList, new { @class = "form-control form-control-chosen-required" })
+                        @*@Html.EditorFor(model => model.id_tata_tertib, new { htmlAttributes = new { @class = "form-control" } })*@
+                        @Html.ValidationMessageFor(model => model.id_tata_tertib, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.poin, htmlAttributes: new { @class = "control-label col-md-2 text-left" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.poin, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.poin, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+            </div>
+            <div class="panel-footer">
+                @Html.ActionLink("BACK", "PointSiswaNIS", "PoinSiswaWKL", new { id = Model.NIS, kelas = Model.Kelas }, new { @class = "btn btn-success" })
+                <input type="submit" value="Save" class="btn btn-primary float-right" />
+            </div>
+        </div>
+    </div>
+}
+
+<script>
+    $(document).ready(function () {
+        fWaliKelas('mnPoinSiswaWKL');
+    });
+
+     $('#id_tata_tertib').on("change", function () {
+        var id_tata_tertib = $('#id_tata_tertib').val();
+        var obj = { id_tata_tertib: id_tata_tertib };
+         AjaxCall('/TataTertib/GetTataTertib', JSON.stringify(obj), 'POST').done(function (response) {
+            if (response.length > 0) {
+                var tt = jQuery.parseJSON(response);
+                $("#poin").val(tt.poin);
+            }
+        }).fail(function (error) {
+            alert(error.StatusText);
+        });
+    });
+
+</script>

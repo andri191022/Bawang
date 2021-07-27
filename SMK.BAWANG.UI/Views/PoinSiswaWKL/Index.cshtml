@@ -1,0 +1,87 @@
+﻿@model IEnumerable<SMK.BAWANG.Dto.custom.tbl_point_cstm>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="page-title">
+    <h2> Point Siswa</h2>
+</div>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <p> &nbsp;</p>
+    </div>
+    <div class="panel-body">
+
+        <div class="example-box-wrapper">
+            <table id="datatable-row-highlight" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.NIS)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Nama)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Kelas)
+                        </th>
+                        <th>
+                            Jumlah_Point
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NIS)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nama)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Kelas)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Jumlah_Point)
+                        </td>
+                        <td style="text-align:center;">
+                            @Html.ActionLink(" ", "PointSiswaNIS", new { id = item.NIS, kelas = item.Kelas }, new { @class = "glyph-icon tooltip-button demo-icon icon-search", title = "Detail Data" })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    /* Datatable row highlight */
+
+    $(document).ready(function () {
+        var table = $('#datatable-row-highlight').DataTable(
+            {
+                columnDefs: [{
+                    targets: 1,
+                    render: $.fn.dataTable.render.ellipsis(100)
+                }]
+                , responsive: true
+            }
+        );
+
+        $('#datatable-row-highlight tbody').on('click', 'tr', function () {
+            $(this).toggleClass('tr-selected');
+        });
+
+        fWaliKelas('mnPoinSiswaWKL');
+
+    });
+
+</script>
+
+
